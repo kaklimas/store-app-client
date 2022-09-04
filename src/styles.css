@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,400&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+
+.page {
+  background-color: white;
+  min-height: 200px;
+  padding: 30px;
+  border: 5px;
+  -webkit-box-shadow: 0px 0px 13px 0px rgba(135,135,135,1);
+  -moz-box-shadow: 0px 0px 13px 0px rgba(135,135,135,1);
+  box-shadow: 0px 0px 13px 0px rgba(135,135,135,1);
+}

@@ -1,0 +1,48 @@
+<div class="sticky-nav">
+    <mat-toolbar class="main-nav">
+      <button>
+        <img src="https://material.angular.io/assets/img/homepage/angular-white-transparent.svg" alt="">
+        <span>Home</span>
+      </button>
+      <button>
+        <span>Home</span>
+      </button>
+      <button>
+        <span>Home</span>
+      </button>
+      <button>
+        <span>Home</span>
+      </button>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
+  <mat-toolbar class="main-nav other-nav">
+    <button *ngIf="!displayToggleButton" (click)="opened=!opened" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h2>{{label}}</h2>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+      Sidenav content
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+  
+      <div class="content-box">
+        <!-- <router-outlet></router-outlet> -->
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  <mat-toolbar class="main-nav other-nav">
+    Footer
+  </mat-toolbar>
+  
