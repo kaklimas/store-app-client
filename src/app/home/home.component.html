@@ -1,43 +1,56 @@
 <div class="sticky-nav">
     <mat-toolbar class="main-nav">
-      <button>
-        <img src="https://material.angular.io/assets/img/homepage/angular-white-transparent.svg" alt="">
+      <button class="navbar-button">
+        <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button>
-        <span>Home</span>
+      <button class="navbar-button">
+        <mat-icon>movie</mat-icon>
+        <span>Movies</span>
       </button>
-      <button>
-        <span>Home</span>
+      <button class="navbar-button">
+        <mat-icon>supervisor_account</mat-icon>
+        <span>Users</span>
       </button>
-      <button>
-        <span>Home</span>
+      <button class="navbar-button">
+        <mat-icon> message</mat-icon>
+        <span>About us</span>
       </button>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-        <mat-icon>favorite</mat-icon>
+    
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>apps</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>share</mat-icon>
-      </button>
+      <mat-menu  #menu="matMenu" class="menu">
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>search</mat-icon>
+          <span>Search</span>
+        </button>
+        <button (click)="logout()" mat-menu-item>
+          <mat-icon>person_pin</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+
     </mat-toolbar>
   </div>
   <mat-toolbar class="main-nav other-nav">
-    <button *ngIf="!displayToggleButton" (click)="opened=!opened" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <h2>{{label}}</h2>
+    <div class="section-title">
+      <h2>{{sectionTitle}}</h2>
+    </div>
   </mat-toolbar>
   
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-      Sidenav content
-    </mat-sidenav>
-  
+    
     <mat-sidenav-content>
-  
       <div class="content-box">
-        <!-- <router-outlet></router-outlet> -->
+        123123132
+        <router-outlet></router-outlet>
+        
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

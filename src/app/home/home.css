@@ -46,6 +46,14 @@ flex: 1 1 auto;
 }
 .content-box {
     padding: 50px;  
+    min-height: 800px;
 }
-  
-  
+.mat-menu-content{
+    padding-right: 40px;
+}
+.navbar-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
