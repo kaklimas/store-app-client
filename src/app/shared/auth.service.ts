@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
-import { User, UserLoginDTO } from '../model/user';
 import { HttpClient } from '@angular/common/http';
-import { UserRegisterDTO } from './../model/user';
+import { UserLoginDTO, UserRegisterDTO } from '../model/user';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  private BASE = 'http://localhost:8080/api/auth'
+  private BASE = 'http://localhost:8080/api/auth';
   private LOGIN_URL = '/login';
   private REGISTER_URL = '/register';
 
   private USERNAME = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  isLoggedIn() {
+    return !(this.USERNAME == '');
+  }
 
   login(user: UserLoginDTO) {
     return this.http.post<UserLoginDTO>(this.BASE + this.LOGIN_URL, user);

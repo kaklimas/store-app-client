@@ -1,25 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;1,300&display=swap');
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,700;1,400&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 
 .page {
   background-color: white;
-  min-height: 200px;
+  margin-bottom: 30px;
   padding: 30px;
   border: 5px;
   -webkit-box-shadow: 0px 0px 13px 0px rgba(135,135,135,1);
   -moz-box-shadow: 0px 0px 13px 0px rgba(135,135,135,1);
   box-shadow: 0px 0px 13px 0px rgba(135,135,135,1);
+}
+
+.text-danger {
+  color: crimson;
+  font-weight: 200;
+  font-size: .8rem;
+}
+.page h1 {
+  font-weight: 300;
+  font-size: 2.5rem;
 }

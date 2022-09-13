@@ -119,6 +119,7 @@ textarea::-moz-placeholder { color: #adadad;}
 textarea:-ms-input-placeholder { color: #adadad;}
 
 /*---------------------------------------------*/
+
 button {
   font-family: Poppins-Medium;
   font-size: 16px;
@@ -155,6 +156,13 @@ button {
 button:hover {
 	cursor: pointer;
 }
+button:disabled {
+  background-color: #a64bf4;
+}
+button:disabled:hover{
+  cursor: auto;
+  background-color: #a64bf4;
+}
 
 iframe {
 	border: none !important;
@@ -188,7 +196,6 @@ iframe {
 .limiter {
   width: 100%;
   margin: 0 auto;
-  padding-top: 50px;
 }
 
 .container-login100 {

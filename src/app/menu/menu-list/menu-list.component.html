@@ -1,0 +1,109 @@
+<div class="page">
+    <h1>Categories</h1>
+
+    <div class="categories-list">
+      <table mat-table
+       [dataSource]="categoriesDataSource" multiTemplateDataRows
+       class="mat-elevation-z8">
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of categoriesColumnToDisplay">
+        <th mat-header-cell *matHeaderCellDef>
+          <div *ngIf="column != 'more' && column != 'img'">
+            {{column | upperFirstLetter}}
+          </div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="column != 'more' && column != 'img'">
+            {{element[column]}}
+          </div>
+          <div *ngIf="column == 'img'">
+            <img src="{{element.img}}" alt="">
+          </div>
+
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="expand">
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">Dishes</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+            <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+            <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+          </button>
+        </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+      <div class="example-element-detail"
+           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+        <div class="details">
+          <h2>Popular dishes from <span>{{element.name}}</span> category</h2>
+          <table mat-table [dataSource]="dishesDataSource" class="mat-elevation-z8 demo-table">
+            <ng-container matColumnDef="dish-image">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <img src="{{element.img}}" alt="">
+              </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            </ng-container>
+          
+            <ng-container matColumnDef="ingredients">
+              <th mat-header-cell *matHeaderCellDef>Ingredients</th>
+              <td mat-cell *matCellDef="let element">{{element.ingredients}}</td>
+            </ng-container>
+          
+            <ng-container matColumnDef="cost">
+              <th mat-header-cell *matHeaderCellDef>Cost</th>
+              <td mat-cell *matCellDef="let element">${{element.cost}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="more">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>dialpad</mat-icon>
+                    <span>Redial</span>
+                  </button>
+                  <button mat-menu-item disabled>
+                    <mat-icon>voicemail</mat-icon>
+                    <span>Check voice mail</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>notifications_off</mat-icon>
+                    <span>Disable alerts</span>
+                  </button>
+                </mat-menu>
+                
+              </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="dishesColumnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: dishesColumnsToDisplay;"></tr>
+            
+          </table>
+          <button class="more-dishes" mat-flat-button color="primary">More</button>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+    </div>
+    
+
+</div>

@@ -1,18 +1,22 @@
 <div class="sticky-nav">
     <mat-toolbar class="main-nav">
-      <button class="navbar-button">
+      <button (click)="switchHome()" class="navbar-button">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </button>
-      <button class="navbar-button">
-        <mat-icon>movie</mat-icon>
-        <span>Movies</span>
+      <button (click)="switch('menu')" class="navbar-button">
+        <mat-icon>restaurant_menu</mat-icon>
+        <span>Menu</span>
       </button>
-      <button class="navbar-button">
+      <button (click)="switch('cart')" class="navbar-button">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Shopping cart</span>
+      </button>
+      <button (click)="switch('users')" class="navbar-button">
         <mat-icon>supervisor_account</mat-icon>
         <span>Users</span>
       </button>
-      <button class="navbar-button">
+      <button (click)="switch('about')" class="navbar-button">
         <mat-icon> message</mat-icon>
         <span>About us</span>
       </button>
@@ -48,9 +52,7 @@
     
     <mat-sidenav-content>
       <div class="content-box">
-        123123132
         <router-outlet></router-outlet>
-        
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
